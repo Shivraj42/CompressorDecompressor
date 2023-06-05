@@ -21,8 +21,7 @@ public class Decompressor {
         FileInputStream fis= new FileInputStream(file);
         GZIPInputStream gzip= new GZIPInputStream( fis);
         FileOutputStream fos= new FileOutputStream(fileDirectory+"/DecompressedFile");
-        int x=1024;
-        byte[] buffer= new byte[x];
+        byte[] buffer= new byte[1024];
         int len;
         while((len=gzip.read(buffer))!=-1){
            fos.write(buffer, 0, len);
