@@ -7,12 +7,15 @@ package GUI;
 import comp_decomp.Decompressor;
 import comp_decomp.compressor;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 
@@ -20,28 +23,45 @@ import javax.swing.JOptionPane;
  *
  * @author LEGION
  */
-public class AppFrame extends JFrame implements ActionListener{
-    JButton compressButton;
-    JButton decompressButton;
-    AppFrame(){
-        this.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE);
-        this.setLayout(null);
-        compressButton= new JButton("Select file to compress");
-        compressButton.setBounds(20, 100, 200, 30);
-        compressButton.addActionListener(this);
-        
-        decompressButton=new JButton("Select file to decompress");
-        decompressButton.setBounds(780, 100, 200, 30);
-        decompressButton.addActionListener(this);
-        
-        this.add(compressButton);
-        this.add(decompressButton);
-        this.setSize(1000, 500);
-        this.getContentPane().setBackground(Color.black);
-        this.setVisible(true);
+public class AppFrame implements ActionListener{
+	
+	JFrame frame;
+	JButton compressButton;
+	JButton decompressButton;
+	JLabel background;
+	
+	AppFrame()
+	{
+		frame = new JFrame("Compressor and Decompressor");
+		frame.setLayout(null);
+		frame.setSize(695,490);
+		frame.setVisible(true);
+                frame.setLocationRelativeTo(null);
+		
+		ImageIcon img = new ImageIcon("C:\\Users\\LEGION\\OneDrive\\Documents\\NetBeansProjects\\CompressorDecompressor\\frame.jpg");
+		
+		background = new JLabel("", img, JLabel.CENTER);
+		background.setBounds(0, 0, 695, 490);
+		
+		compressButton = new JButton("Select");
+		compressButton.setBounds(80, 305, 100, 30);
+		compressButton.setBackground(Color.gray);
+		compressButton.setFont(new Font("Calibri",Font.ITALIC,20));
+		compressButton.addActionListener(this);
+		
+		
+		decompressButton = new JButton("Select");
+		decompressButton.setBounds(480, 305, 100, 30);
+		decompressButton.setBackground(Color.gray);
+		decompressButton.setFont(new Font("Calibri",Font.ITALIC,20));
+		decompressButton.addActionListener(this);
+		
+		frame.add(compressButton);
+		frame.add(decompressButton);
+		frame.add(background);
 
-    }
-    
+		frame.getContentPane().setBackground(Color.red);
+	}    
     
     
     

@@ -10,19 +10,14 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.zip.GZIPOutputStream;
 
-/**
- *
- * @author LEGION
- */
 public class compressor {
     public static void method(File file)throws IOException{
         String fileDirectory= file.getParent();
-        
+        String f= file.getName();
         FileInputStream fis= new FileInputStream(file);
-        FileOutputStream fos= new FileOutputStream(fileDirectory+"CompressedFile.gz");
+        FileOutputStream fos= new FileOutputStream(fileDirectory+"/"+ f+"CompressedFile.gz");
         GZIPOutputStream gzip= new GZIPOutputStream(fos);
-         int x=1024*1024;
-        byte[] buffer= new byte[x];
+        byte[] buffer= new byte[1024];
         int len;
         
         while((len=fis.read(buffer))!=-1){
@@ -39,3 +34,4 @@ public class compressor {
         method(path);
     }
 }
+
